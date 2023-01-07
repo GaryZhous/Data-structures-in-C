@@ -29,7 +29,7 @@ extern void list_deinit(list_t* list);
 
 #include "list.h"
 
-
+//we create a new node
 static node_t* create_node(int data){
     node_t* pnew = malloc(sizeof(node_t));
     pnew->data = data;
@@ -37,7 +37,7 @@ static node_t* create_node(int data){
     return pnew;
 }
 
-
+//we initiate a list
 void list_init(list_t* list){
     
     list->head = create_node(0);
@@ -48,7 +48,7 @@ void list_init(list_t* list){
     list->tail->next = NULL;
 }
 
-
+//similar to python we use for loop to go through the list
 void list_travel(list_t* list){
     for(node_t* pnode = list->head; pnode != list->tail; pnode = pnode->next){
        
@@ -61,7 +61,7 @@ void list_travel(list_t* list){
     }
     printf("\n");
 }
-
+// we add a new node with data at the end of the list
 void list_add(list_t* list, int data){
     
     node_t* pnew = create_node(data);
@@ -80,7 +80,7 @@ void list_add(list_t* list, int data){
     }
 }
 
-
+//we add a node with data between the tail and the last node
 void list_add_last(list_t* list, int data){
    
     node_t* pnew = create_node(data);
@@ -98,7 +98,7 @@ void list_add_last(list_t* list, int data){
     }
 }
 
-
+//we add a node with data between the head and the first node
 void list_add_first(list_t* list, int data){
   
     node_t* pnew = create_node(data);
@@ -106,7 +106,7 @@ void list_add_first(list_t* list, int data){
     list->head->next = pnew;
     pnew->next = ptmp; 
 }
-
+// we delete a node at the end of the list
 void list_del(list_t* list, int data){
     for(node_t* pnode = list->head; pnode != list->tail; pnode = pnode->next){
        
@@ -122,7 +122,7 @@ void list_del(list_t* list, int data){
     
 }
 
-
+//we clean the whole list using free(cuz no dangling pointers can be created)
 void list_deinit(list_t* list){
     node_t* pnode = list->head;
     while(pnode){//pnode != NULL
