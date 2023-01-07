@@ -1,13 +1,13 @@
 #ifndef _list_H
-#define _list_H
+#define _list_H //header protector let's goooo
 #include <stdio.h>
 #include <stdlib.h>
-typedef struct node{
+typedef struct node{ //simple definition of a node
   int data;
   struct node* next;
 }node_t;
 
-typedef struct list{
+typedef struct list{ // hard thing tbh
   struct node* head;
   struct node* tail;
 }list_t;
